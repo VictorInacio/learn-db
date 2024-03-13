@@ -28,8 +28,7 @@ CREATE TABLE clientes (
 
 CREATE TABLE pedidos (
     numero INT PRIMARY KEY,
-    cliente_id INT,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+    cliente_id INT
 );
 -- INSERT:
 
@@ -38,18 +37,41 @@ INSERT INTO clientes (id, nome) VALUES
 (1, 'Cliente A'),
 (2, 'Cliente B');
 
+INSERT INTO clientes (id, nome) VALUES
+(3, 'Cliente C'),
+(4, 'Cliente D');
+
+
 INSERT INTO pedidos (numero, cliente_id) VALUES
 (101, 1),
 (102, 1),
 (103, 2);
+
+INSERT INTO pedidos (numero, cliente_id) VALUES
+(104, 99),
+(105, 98),
+(106, 98);
 -- SELECT:
 
+SELECT * from clientes;
 
 SELECT clientes.nome, pedidos.numero
 FROM clientes
 INNER JOIN pedidos ON clientes.id = pedidos.cliente_id;
 
-Join por Texto:
+SELECT clientes.nome, pedidos.numero
+FROM clientes
+LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id;
+
+SELECT clientes.nome, pedidos.numero
+FROM clientes
+RIGHT JOIN pedidos ON clientes.id = pedidos.cliente_id;
+
+SELECT clientes.nome, pedidos.numero
+FROM pedidos
+RIGHT JOIN clientes ON clientes.id = pedidos.cliente_id;
+
+-- Join por Texto:
 DDL:
 
 CREATE TABLE clientes (

@@ -18,6 +18,12 @@ INSERT INTO produtos (nome, preco) VALUES
     ('Calça', 39.99),
     ('Sapato', 59.99),
     ('Meia', 9.99);
+   
+INSERT INTO produtos (nome, preco) VALUES
+    ('Cemisa', 29.99),
+    ('Celça', 39.99),
+    ('Sepato', 59.99),
+    ('Maia', 9.99);
 
 INSERT INTO clientes (nome, email) VALUES
     ('João', 'joao@example.com'),
@@ -28,7 +34,17 @@ INSERT INTO clientes (nome, email) VALUES
 SELECT * FROM produtos ORDER BY preco DESC;
 
 -- Exemplo de SELECT usando LIMIT e ORDER BY
-SELECT * FROM produtos ORDER BY preco DESC LIMIT 2;
+
+SELECT * 
+FROM produtos 
+ORDER BY preco DESC, nome DESC;
+
+
+
+
+SELECT * FROM produtos ORDER BY preco DESC, nome ASC;
+
+SELECT * FROM produtos ORDER BY preco DESC, nome ASC  OFFSET 3;
 
 
 -- Exemplo de SELECT usando LIMIT para paginar resultados
