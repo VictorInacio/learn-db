@@ -22,6 +22,7 @@
 			}
 		}
 	},
+	"virtual-models": {"postgres-jdbc-18dfb157fd9-63dcea6c33d18c2c":{"postgres":{"public":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202403081551\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"postgres-jdbc-18dfb157fd9-63dcea6c33d18c2c\"\u003e\u003centity id\u003d\"1\" name\u003d\"categorias\" fq-name\u003d\"public.categorias\" order\u003d\"0\" x\u003d\"434\" y\u003d\"50\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"cliente_1fn\" fq-name\u003d\"public.cliente_1fn\" order\u003d\"1\" x\u003d\"237\" y\u003d\"348\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"cliente_2fn\" fq-name\u003d\"public.cliente_2fn\" order\u003d\"2\" x\u003d\"237\" y\u003d\"204\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"pedidos\" fq-name\u003d\"public.pedidos\" order\u003d\"3\" x\u003d\"40\" y\u003d\"502\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"pedidos_2fn\" fq-name\u003d\"public.pedidos_2fn\" order\u003d\"4\" x\u003d\"40\" y\u003d\"97\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"6\" name\u003d\"produto_2fn\" fq-name\u003d\"public.produto_2fn\" order\u003d\"5\" x\u003d\"237\" y\u003d\"40\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"7\" name\u003d\"telefones_1fn\" fq-name\u003d\"public.telefones_1fn\" order\u003d\"6\" x\u003d\"40\" y\u003d\"338\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"produto_2fn_categoriaid_fkey\" fq-name\u003d\"public.produto_2fn.produto_2fn_categoriaid_fkey\" type\u003d\"fk\" pk-ref\u003d\"1\" fk-ref\u003d\"6\"/\u003e\u003crelation name\u003d\"telefones_1fn_cliente_id_fkey\" fq-name\u003d\"public.telefones_1fn.telefones_1fn_cliente_id_fkey\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"7\"/\u003e\u003crelation name\u003d\"pedidos_2fn_clienteid_fkey\" fq-name\u003d\"public.pedidos_2fn.pedidos_2fn_clienteid_fkey\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"5\"/\u003e\u003crelation name\u003d\"pedidos_2fn_produtoid_fkey\" fq-name\u003d\"public.pedidos_2fn.pedidos_2fn_produtoid_fkey\" type\u003d\"fk\" pk-ref\u003d\"6\" fk-ref\u003d\"5\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}}},
 	"connection-types": {
 		"dev": {
 			"name": "Development",
@@ -35,7 +36,7 @@
 			"auto-close-transactions": true,
 			"close-transactions-period": 1800,
 			"auto-close-connections": true,
-			"close-connections-period": 3600
+			"close-connections-period": 14400
 		}
 	}
 }

@@ -1,16 +1,16 @@
 {
 	"folders": {},
 	"connections": {
-		"postgres-jdbc-18dfae4a48b-7870c3ad12446fde": {
+		"postgres-jdbc-18dfb157fd9-63dcea6c33d18c2c": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
-			"name": "postgres",
+			"name": "Postgres Local Curso",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
-				"port": "5466",
+				"port": "5432",
 				"database": "postgres",
-				"url": "jdbc:postgresql://localhost:5466/postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
 				"configurationType": "MANUAL",
 				"home": "/opt/homebrew/Cellar/postgresql@14/14.11_1",
 				"type": "dev",
