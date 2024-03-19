@@ -1,9 +1,11 @@
 -- DDL para Tabelas
+drop table tabela1;
 CREATE TABLE tabela1 (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(50)
 );
 
+drop table tabela2;
 CREATE TABLE tabela2 (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(50)
@@ -42,8 +44,8 @@ SELECT nome FROM tabela1;
 SELECT nome FROM tabela2;
 
 -- Exemplo 3: Recuperar todos os nomes de ambas as tabelas sem duplicatas
-SELECT nome FROM tabela1
-UNION
+SELECT nome FROM tabela1 
+UNION 
 SELECT nome FROM tabela2;
 
 -- Exemplo 4: Recuperar nomes comuns entre tabela1 e tabela2
@@ -62,13 +64,13 @@ EXCEPT
 SELECT nome FROM tabela1;
 
 -- Exemplo 7: Recuperar nomes de qualquer tabela1 ou tabela2, mas não ambos
-(SELECT nome FROM tabela1
+(select 'tabela 1', nome FROM tabela1
 EXCEPT
-SELECT nome FROM tabela2)
+SELECT 'tabela 1', nome FROM tabela2)
 UNION
-(SELECT nome FROM tabela2
+(SELECT 'tabela 2', nome FROM tabela2
 EXCEPT
-SELECT nome FROM tabela1);
+SELECT 'tabela 2',nome FROM tabela1);
 
 -- Exemplo 8: Recuperar nomes presentes em qualquer tabela1 ou tabela2
 (SELECT nome FROM tabela1
@@ -88,9 +90,39 @@ SELECT nome, 'tabela2' AS fonte FROM tabela2;
 WITH nomes_combinados AS (
     SELECT nome, 'tabela1' AS fonte FROM tabela1
     UNION ALL
-    SELECT nome, 'tabela2' AS fonte FROM tabela2
-)
+    SELECT nome, 'tabela2' AS fonte FROM tabela2)
 SELECT nome, fonte, COUNT(*) AS ocorrencias
 FROM nomes_combinados
+INNER JOIN (select upper(nome) from nomes_combinados)
 GROUP BY nome, fonte
 ORDER BY nome;
+
+
+
+
+SELECT nome, fonte, COUNT(*) AS ocorrencias
+FROM (SELECT nome, 'tabela1' AS fonte FROM tabela1
+       UNION ALL
+      SELECT nome, 'tabela2' AS fonte FROM tabela2)
+inner join (select upper(nome) from (SELECT nome, 'tabela1' AS fonte FROM tabela1
+								       UNION ALL
+								      SELECT nome, 'tabela2' AS fonte FROM tabela2))
+GROUP BY nome, fonte
+ORDER BY nome;
+
+
+
+SELECT nome, COUNT(*) AS ocorrencias
+FROM (SELECT nome, 'tabela1' AS fonte FROM tabela1
+       UNION ALL
+      SELECT nome, 'tabela2' AS fonte FROM tabela2) as t
+GROUP BY nome
+ORDER BY nome;
+
+
+SELECT fonte, COUNT(*) AS ocorrencias
+FROM (SELECT nome, 'tabela1' AS fonte FROM tabela1
+       UNION ALL
+      SELECT nome, 'tabela2' AS fonte FROM tabela2) as t
+GROUP BY fonte
+ORDER BY fonte;
